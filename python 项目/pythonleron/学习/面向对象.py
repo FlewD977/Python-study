@@ -207,6 +207,11 @@ class show_magic():
         return super(show_magic, cls).__new__(cls, *args, **kwargs)
 
 
+# 进入class new会先执行 实例化也就是开辟了一个新的空间或者说创建了一个新的对象
+# return 返回的则是新开辟的空间 当执行完new init会继续执行 self接收new返回出的空间 处理完后返回给外层调用的
+# 若不return 则init不会执行 因为拿不到地址
+# new+init 才是完整的构造器 ，参考JAVA，先new对象，再初始化
+
 s = show_magic('jack')
 # ------------------------------
 # show_magic.__new__() 类中不写，也可以在外面调用new，如果类里写了new系统的new就会失效，转而执行类里的new
