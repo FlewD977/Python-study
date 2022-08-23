@@ -138,7 +138,7 @@ class Person1():
 
     # def show(self):
     #     print(f'年龄{Person1}')
-    def __int__(self, name):
+    def __init__(self, name):
         self.name = name
 
     @classmethod
@@ -185,3 +185,28 @@ Person1.test()
     普通方法需要对象，因为每个普通方法都有一个self
     只有创建了对象才可以调用普通方法，否则无法调用
 """
+
+# 魔术方法
+"""
+就是类/对象中的方法，于普通方法不同的是，普通方法需要调用，魔术方法是在特定时刻自动调用
+
+常用的魔术方法：
+__init__:初始化魔术方法，初始化对象时触发，用于初始化对象的成员
+__new__:实例化的魔术方法，在实例化对象时触发，
+
+"""
+
+
+class show_magic():
+    def __init__(self, name1):
+        self.name1 = name1
+        print(self.name1)
+
+    def __new__(cls, *args, **kwargs):  # 如果在init后写了new类会重新覆盖 所以只打印了分割线
+        print('-' * 30)
+        return super(show_magic, cls).__new__(cls, *args, **kwargs)
+
+
+s = show_magic('jack')
+# ------------------------------
+# show_magic.__new__() 类中不写，也可以在外面调用new，如果类里写了new系统的new就会失效，转而执行类里的new
