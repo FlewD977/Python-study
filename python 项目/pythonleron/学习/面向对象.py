@@ -253,3 +253,26 @@ print(sys.getrefcount(s))  # 查找s的地址有几块引用
 print(s)  # 单纯打印的只是一个地址
 # __str__可以在打印对象名时将变量内容打印出来，给予开发者更多的信息
 # name:jack
+
+"""
+总结
+类中的方法：
+
+普通方法
+def func(self):   self对象
+    pass
+
+类方法
+@classmethod
+def func(cls):  cla类
+    pass
+
+静态方法
+@staticmethod
+def func():     无需参数
+    pass
+    
+魔术方法
+__init__
+__str__
+"""
